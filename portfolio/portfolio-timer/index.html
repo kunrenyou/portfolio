@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>challenge-timer</title>
+</head>
+
+<body id="flash">
+  <div id="countdownTimer">
+    <h1>Countdown Timer</h1>
+    <!-- カウントダウンディスプレイ -->
+    <div id="timer" class="flex1">
+      <p class="timertext">
+        <span id="hour"></span><span id="min"></span><span id="sec"></span>
+      </p>
+    </div>
+    <!-- タイマー入力 -->
+    <div id="countdown" class="flex2">
+      <input type="text" id="hcount" class="hmsCount" name="hcount" placeholder="h" />
+      <input type="text" id="mcount" class="hmsCount" name="mcount" placeholder="m" />
+      <input type="text" id="scount" class="hmsCount" name="scount" placeholder="s" />
+    </div>
+    <!-- ボタン -->
+    <div id="operation" class="flex3">
+      <input type="button" value="Start" id="start" class="styled" onclick="clickStart()" />
+      <input type="button" value="Stop" id="stop" class="styled" onclick="clickStop()" />
+      <input type="button" value="Reset" id="reset" class="styled" onclick="clickReset()" />
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

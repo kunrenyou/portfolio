@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/destyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!--------------------スライダー見た目-------------------------------------------------->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
+    />
+    <title>Haruyama-SakeBrewing</title>
+  </head>
+  <body>
+    <!-- <header class="jumbotron jumbotron-fluid">
+  
+
+      <div class="navbar-nav">
+              <a class="nav-item nav-link active" href="#conceptArea"
+                >こだわり <span class="sr-only"></span
+              ></a>
+              <a class="nav-item nav-link" href="#itemArea">商品紹介</a>
+              <a class="nav-item nav-link" href="#companyArea">企業情報</a>
+              <a class="nav-item nav-link disabled" href="#contactArea"
+                >お問い合わせ</a
+              >
+                </header> -->
+    <header>
+      <!-- svgロゴとハンバーガーナビ -->
+
+      <nav class="gMenu">
+        <!-- メニュー開閉用チェックボックス -->
+        <input type="checkbox" class="menu-btn" id="menu-btn" />
+        <!-- アイコン作成用 -->
+        <label class="menu-icon" for="menu-btn">
+          <!-- 線作成用 -->
+          <span class="navicon"></span>
+        </label>
+        <!-- メニュー -->
+        <ul class="menu">
+          <li><a href="#conceptArea">こだわり</a></li>
+          <li><a href="#itemArea">商品紹介</a></li>
+          <li><a href="#companyArea">企業情報</a></li>
+          <li><a href="#contactArea">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- <p class="lead lh-lg">Haruyama Sake Brewing Co., Ltd.</p> -->
+      <!-- <img src="img/KYPKPAR52333_TP_V.jpg img-fluid" alt="" class="img" /> -->
+      <div class="heroImg">
+        <h1>
+          春山酒造 <br class="title" />
+          株式会社
+        </h1>
+        <p class="lead">
+          季節の移ろいと共に、
+          <br class="spOnly" />心を満たす日本酒をお届けします。
+        </p>
+      </div>
+      <section id="conceptArea">
+        <h2>こだわり</h2>
+        <div class="flex01">
+          <div class="conceptText">
+            <h3>水<span>water</span></h3>
+            <p>
+              春山酒造は、自然豊かな地域に位置し、<br />
+              その清らかな伏流水を使用。
+              水の純度が高く、日本酒の味わいに深みを与えます。
+            </p>
+          </div>
+          <!-- <p class="conceptjPG"><img src="img/concept01.jpg" alt="" /></p> -->
+          <div id="slide" class="slider">
+            <div>
+              <img src="img/water01.jpg" alt="" />
+            </div>
+            <div>
+              <img src="img/water02.jpg" alt="" />
+            </div>
+            <div>
+              <img src="img/water03.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="flex02">
+          <div class="conceptText">
+            <h3>米<span>rice</span></h3>
+            <p>
+              契約農家から選りすぐった酒米のみを使用。<br />
+              種類によって異なる特性を活かし、それぞれの酒に最適な味わいを追求しています。
+            </p>
+          </div>
+          <div class="slider">
+            <div>
+              <img src="img/rice01.jpg" alt="" />
+            </div>
+            <div>
+              <img src="img/rice02.jpg" alt="" />
+            </div>
+            <div>
+              <img src="img/rice03.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex01">
+          <div class="conceptText">
+            <h3>技術<span>traditional</span></h3>
+            <p>
+              伝統的な醸造法を大切にしつつ、<br />
+              革新的なアイデアを取り入れることで、常に新しい味の探求を行っています。
+            </p>
+          </div>
+          <div class="slider">
+            <div>
+              <img src="img/traditional01.jpg" alt="" />
+            </div>
+            <div>
+              <img src="img/traditional02.jpg" alt="" />
+            </div>
+            <div>
+              <img src="img/traditional03.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="itemArea">
+        <h2>商品紹介</h2>
+        <h3>春乃舞風 <br /><span>Haruno Maikaze</span></h3>
+        <div class="flex03">
+          <img src="img/sake01.png" alt="" />
+        </div>
+        <p class="itemText">
+          春の訪れを告げるかのような、フルーティで華やかな香り。<br />
+          厳選された酒米を使用し、熟練の技で丁寧に醸されることで、柔らかな口当たりと清涼感あふれる味わいを実現しました。
+        </p>
+        <p class="itemText">おすすめの飲み方: 冷やして、春の食材と共に。</p>
+      </section>
+      <section id="companyArea">
+        <h2>企業情報</h2>
+        <table>
+          <tbody>
+            <tr>
+              <th>創業</th>
+              <td>1895年</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>新潟県の自然に恵まれた地域</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>春山次郎 (代表取締役社長)</td>
+            </tr>
+            <tr>
+              <th>理念</th>
+              <td>
+                「四季折々の自然と共に生きる。それが私たちの酒を造る姿勢です。」<br />
+                春山酒造は、自然の恵みを大切にし、次世代にも引き継がれる日本酒文化を目指しています。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <section id="contactArea">
+        <h2>お問い合わせ</h2>
+        <address>
+          <p>
+            ご購入希望、商品に関するお問い合わせ、その他ご質問等、
+            <br />お気軽にご連絡ください。<br />
+            <a href="xxxxxx@xxx.xxx">xxxxxx@xxx.xxx</a>
+          </p>
+        </address>
+      </section>
+      <small>&copy;Haruyama Sake Brewery Co.,LTD</small>
+    </footer>
+    <div class="btn1"><a href="store.html">オンラインショップ</a></div>
+    <!--------------------jQuery----------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!------------------------------------------------------------------------------------->
+
+    <!--------------------スライダー----------------------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!------------------------------------------------------------------------------------->
+    <script src="js/main.js"></script>
+    <script>
+      $(".slider").slick({
+        autoplay: true, //自動再生
+        autoplaySpeed: 2000, //自動再生のスピード
+        speed: 800, //スライドするスピード
+        dots: true, //スライド下のドット
+        arrows: true, //左右の矢印
+        infinite: true, //永久にループさせる
+      });
+    </script>
+  </body>
+</html>

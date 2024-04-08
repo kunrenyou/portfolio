@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+body {
+  background-color: #333;
+}
+
+#countdownTimer {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  height: 50px;
+  margin: 30px auto;
+  font-weight: bold;
+  width: 80%;
+  color: #fff;
+}
+
+.flex1 {
+  padding-bottom: 50px;
+}
+
+.flex1,
+.flex2,
+.flex3 {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.timertext {
+  text-align: center;
+  margin: 0 auto;
+  height: 80%;
+  justify-content: center;
+  color: #fff;
+}
+
+#hour,
+#min,
+#sec {
+  font-size: 40px;
+  margin: 10px 20px;
+}
+
+#hour {
+  display: inline-block;
+}
+
+input[type="button"],
+input[type="text"] {
+  font-size: 1em;
+  justify-content: center;
+  width: 10em;
+  height: 4em;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #333;
+  background-color: #fff;
+}
+
+input[type="button"]:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.flash {
+  animation: flash 1s linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes flash {
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  35%,
+  75% {
+    opacity: 1;
+    background: #ffcc00;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* 375px以下に適用 */
+  #countdownTimer {
+    width: 100%;
+  }
+  #hour,
+  #min,
+  #sec {
+    font-size: 20px;
+  }
+  input[type="button"],
+  input[type="text"] {
+    width: 5rem;
+    height: 2rem;
+  }
+  input[type="button"],
+  input[type="text"] {
+    font-size: 0.2em;
+  }
+}

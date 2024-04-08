@@ -1,0 +1,484 @@
+@charset "utf-8";
+/* 共通設定 */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.noto-serif jp-semibold {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*************************
+header-nav-sp
+*************************/
+/* ハンバーガーナビ */
+.gMenu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+/* メニューアイコンを画面右上に固定しています */
+.gMenu .menu-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  /* padding-top: 5px; */
+  height: 10px;
+}
+
+/* メニューアイコン（三本線）の真ん中の線です */
+.gMenu .menu-icon .navicon {
+  background: #333;
+  /* 色は自由に変更可能です */
+  display: block;
+  height: 2px;
+  /* 太さ */
+  width: 31px;
+  /* 長さ */
+  position: relative;
+  transition: background 0.4s ease-out;
+  /* 形が変わる時のアニメーション */
+}
+
+/* メニューアイコン（三本線）の上と下の線を疑似要素で追加 */
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after {
+  background: #333;
+  /* 色は自由に変更可能です */
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.4s ease-out;
+  /* 形が変わる時のアニメーション */
+  width: 100%;
+}
+
+.gMenu .menu-icon .navicon::before {
+  top: 10px;
+}
+
+/* 位置を上にずらしています */
+.gMenu .menu-icon .navicon::after {
+  top: -10px;
+}
+
+/* 位置を下にずらしています */
+/* 表示されるメニューです */
+.gMenu .menu {
+  background-color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  max-height: 0;
+  /* ★最初は高さを0にして非表示状態に */
+  transition: max-height 0.4s ease;
+  /* 表示されるときのアニメーション */
+  text-align: center;
+}
+
+/* メニュー部分のデザインです */
+.menu :first-of-type {
+  padding-top: 5em;
+}
+
+.menu :last-of-type {
+  padding-bottom: 10.3em;
+}
+
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* チェックボックスは常に非表示です */
+.gMenu .menu-btn {
+  display: none;
+}
+
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+.gMenu .menu-btn:checked ~ .menu {
+  max-height: 100%;
+  transition: max-height 0.6s;
+}
+
+/* メニューボタンの中央の線を非表示に */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+/* サイトに合わせてオリジナルカスタマイズ */
+.gMenu .menu-icon {
+  top: 26px;
+  /* left: ; */
+}
+
+.gMenu .menu-icon .navicon,
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after {
+  background: #333;
+}
+
+/* hero画像 */
+
+/* 全体の左右余白 */
+/* section {
+  margin: 0 12px;
+} */
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* header */
+.heroImg {
+  background: url(../img/hero-sp.jpg) no-repeat;
+  height: 100vh;
+  position: relative;
+  background-color: rgba(207, 187, 204, 0.281);
+  background-blend-mode: lighten;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-weight: bold;
+  font-size: 50px;
+  letter-spacing: 0.1em;
+  /* width: 100%; */
+  /* writing-mode: vertical-rl; */
+  color: #fff;
+  text-shadow: 6px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.lead {
+  display: none;
+}
+.spOnly {
+  display: inline;
+}
+h2 {
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+  line-height: 80px;
+  letter-spacing: 0.1em;
+  /* padding: 2.5em; */
+  height: 80px;
+  align-items: center;
+  background-color: #d68d98;
+  color: #fff;
+}
+h3 {
+  /* flex-basis: 50%; */
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  margin: 1.2em;
+}
+h3 span {
+  padding-left: 6px;
+  font-size: 14px;
+}
+/*************************
+conceptArea-sp
+*************************/
+.flex01,
+.flex02 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  /* height: 20em; */
+  width: 100%;
+}
+.flex02 {
+  flex-direction: row-reverse;
+}
+.conceptText {
+  flex-basis: 50%;
+  font-size: 13px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  /* padding: 5.1em 1.4em; */
+  align-items: center;
+}
+/*************************
+conceptArea-slider-sp
+*************************/
+.slider {
+  width: 50%;
+  /* background-color: #d68d98; */
+}
+.slick-dots {
+  bottom: 10px !important;
+}
+.slick-dotted.slick-slider {
+  margin: 0 !important ;
+}
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+/*************************
+itemArea-sp
+*************************/
+.flex03 {
+  display: flex;
+  align-items: center;
+}
+#itemArea .itemText {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 1.2em;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  padding: 0.5em;
+}
+#itemArea .flex03 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#itemArea .flex03 img:hover {
+  opacity: 0.8;
+}
+/*************************
+companyArea-sp
+*************************/
+#companyArea h2 {
+  margin: 2em 0;
+}
+#companyArea table {
+  /* border-collapse: collapse; */
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+#companyArea table tbody {
+  font-size: 10px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+}
+#companyArea table th,
+#companyArea table td {
+  padding: 1em;
+  vertical-align: middle;
+}
+#companyArea table th {
+  border-right: solid 0.1em #d68d98;
+  color: #333;
+  text-align: center;
+  width: 20%;
+  min-width: 4em;
+  position: relative;
+}
+
+#companyArea table th ::after {
+  content: "";
+  background-color: #c1c7c6;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+}
+/*************************
+contactArea-sp
+*************************/
+#contactArea {
+  height: 300px;
+}
+#contactArea h2 {
+  margin: 2em 0;
+}
+#contactArea p {
+  text-align: center;
+  font-size: 10px;
+  margin: 9.2em 0;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  padding: 0.5em;
+}
+address p a {
+  display: inline-block;
+  margin-top: 1.5em;
+}
+small {
+  padding: 4em;
+  display: block;
+  text-align: center;
+  font-size: 8px;
+  background-color: #d68d98;
+  color: #fff;
+}
+.btn1 {
+  width: 180px;
+  height: 60px;
+  letter-spacing: 0.1em;
+  background-color: #d68d98;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0; */
+  position: fixed;
+  right: 2em;
+  bottom: 0;
+  text-align: center;
+}
+.btn1 a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+/*************************
+PCデザイン-共通設定
+*************************/
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 100%;
+  }
+  h1 {
+    font-weight: bold;
+    font-size: 70px;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 4em;
+    left: 1.2em;
+    color: #333;
+    text-shadow: none;
+  }
+  /*************************
+header-nav-pc
+*************************/
+  header .gMenu .menu-icon {
+    display: none;
+  }
+  .gMenu .menu {
+    overflow: visible;
+    max-height: 100%;
+    display: flex;
+    justify-content: end;
+    padding-top: 0px;
+    /* padding-bottom: 0px; */
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .menu :first-of-type {
+    padding-top: 0;
+  }
+  .menu :last-of-type {
+    padding-bottom: 0;
+  }
+  .gMenu .menu li {
+    padding: 1em;
+  }
+  .gMenu .menu li a {
+    padding: 0;
+    width: 100%;
+  }
+  .gMenu .menu li :hover {
+    border-bottom: solid 0.1em #333;
+  }
+  .heroImg {
+    background: url(../img/hero-pc.jpg) no-repeat;
+    background-color: rgba(255, 255, 255, 0.247);
+    background-blend-mode: lighten;
+    display: block;
+    /* padding: 18em 3em; */
+    /* flex-wrap: wrap-reverse; */
+    position: relative;
+  }
+
+  .spOnly {
+    display: none;
+  }
+  .lead {
+    position: absolute;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.5em;
+    top: 32em;
+    left: 6.4em;
+    /* flex-basis: 20%; */
+  }
+  /*************************
+conceptArea-pc
+*************************/
+
+  #conceptArea .conceptText {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  /*************************
+itemArea-pc
+*************************/
+  #itemArea .flex03 {
+    justify-content: center;
+  }
+  #itemArea .flex03 img {
+    width: 40%;
+  }
+  #itemArea .itemText {
+    font-size: 16px;
+  }
+  /*************************
+companyArea-pc
+*************************/
+  #companyArea table tbody,
+  #companyArea table tbody {
+    font-size: 14px;
+  }
+
+  /*************************
+contactArea-pc
+*************************/
+  #contactArea p {
+    font-size: 14px;
+    margin: 6.1em 0;
+  }
+  .btn1 {
+    width: 250px;
+    height: 60px;
+  }
+}

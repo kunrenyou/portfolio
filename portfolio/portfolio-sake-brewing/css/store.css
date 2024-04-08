@@ -1,0 +1,84 @@
+@charset "utf-8";
+body {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+  max-width: 100%;
+  color: #333;
+}
+
+h1 {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  margin: 40px 0;
+  letter-spacing: 0.11em;
+}
+h2 {
+  width: 70px;
+  margin: 0 auto;
+}
+h2 img {
+  width: 100%;
+}
+h3 {
+  text-align: center;
+  margin: 20px 0;
+  letter-spacing: 0.1em;
+  font-weight: bolder;
+}
+.text {
+  margin-bottom: 20px;
+  letter-spacing: 0.12em;
+}
+.button,
+.text {
+  text-align: center;
+  font-size: 12px;
+}
+.text :last-child {
+  margin-top: 8px;
+}
+.btnOk {
+  display: inline-block;
+  width: 180px;
+  height: 40px;
+  border-radius: 1.8em;
+  letter-spacing: 0.12em;
+  background-color: darkgrey;
+  color: #fff;
+  font-size: 12px;
+  font-size: 10px;
+  font-weight: 300;
+  text-align: center;
+  padding: 0.6em;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.btnNo a {
+  color: darkblue;
+  border-bottom: darkblue solid 1px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    margin: 60px 0;
+    font-size: 18px;
+  }
+  h3 {
+    margin: 40px 0;
+    font-size: 24px;
+  }
+  .button,
+  .text {
+    font-size: 18px;
+    margin-bottom: 26px;
+  }
+  .btnOk {
+    width: 400px;
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+}

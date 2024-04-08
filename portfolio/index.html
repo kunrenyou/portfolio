@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="江野桃花のポートフォリオサイトです" />
+    <!-- アイコンフォント -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>MomokaEno-portfolio</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- header -->
+      <header class="header">
+        <div class="container">
+          <h1 class="header-logo">
+            <a href="#">MOMOKA ENO</a>
+          </h1>
+          <nav class="gnav">
+            <ul class="gnav-list">
+              <li class="gnav-item"><a href="#creations">CREATIONS</a></li>
+              <li class="gnav-item"><a href="#skill">SKILL</a></li>
+              <li class="gnav-item"><a href="#aboutMe">ABOUT ME</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- /header -->
+
+      <main class="content">
+        <!-- mv -->
+        <div class="mv">
+          <div class="mv-container">
+            <p class="mv-title">PORTFOLIO</p>
+            <p class="mv-subtitle">MOMOKA ENO</p>
+            <p class="mv-text">
+              初めまして。江野桃花と申します。 <br />
+              このWebサイトでは、2023年11月より受講中の求職者支援訓練校 <br />
+              Webエンジニア・プログラミング習得科にて制作した作品を掲載しております。
+            </p>
+          </div>
+        </div>
+        <!-- /mv -->
+
+        <!-- creations -->
+        <section class="creations" id="creations">
+          <div class="container">
+            <h2 class="title">CREATIONS</h2>
+            <div class="works-list">
+              <a
+                class="works-item"
+                id="gallery1"
+                href="http://okxxxxxxx3.starfree.jp/portfolio-renovation/"
+              >
+                <div class="works-img">
+                  <img src="img/thumbnail-renovation.jpg" alt="" />
+                </div>
+                <p class="works-name">リフォーム会社のLP制作</p>
+                <p class="works-info">
+                  画像エクスポート、コーディング設計、コーディング(HTML / CSS)
+                </p>
+              </a>
+
+              <!-- modal -->
+              <div id="overlay" class="overlay"></div>
+              <!-- モーダルウィンドウ1 -->
+              <div class="modal-window" id="modal1">
+                <p><img src="img/thumbnail-renovation.jpg" alt="" /></p>
+                <button class="modalClose">Close</button>
+              </div>
+              <!-- モーダルウィンドウ2 -->
+              <div class="modal-window" data-id="modal2">
+                <p>モーダルNo.2</p>
+                <button class="js-close button-close">Close</button>
+              </div>
+              <!-- モーダルウィンドウ3 -->
+              <!-- <div class="modal-window" data-id="modal3">
+                <p>モーダルNo.3</p>
+                <button class="js-close button-close">Close</button>
+              </div> -->
+              <!-- モーダルウィンドウ4-->
+              <!-- <div class="modal-window" data-id="modal4">
+                <p>モーダルNo.4</p>
+                <button class="js-close button-close">Close</button>
+              </div> -->
+              <!-- /modal -->
+              <a
+                class="works-item"
+                data-group="gallery"
+                href="http://okxxxxxxx3.starfree.jp/portfolio-timer/"
+              >
+                <div class="works-img">
+                  <img src="img/thumbnail-timer.jpg" alt="" />
+                </div>
+                <p class="works-name">カウントダウンタイマー</p>
+                <p class="works-info">コーディング設計、コーディング</p>
+              </a>
+
+              <a
+                class="works-item"
+                data-group="gallery"
+                href="http://okxxxxxxx3.starfree.jp/portfolio-sake-brewing/"
+              >
+                <div class="works-img">
+                  <img src="img/thumbnail-sake-brewing.jpg" alt="" />
+                </div>
+                <p class="works-name">酒造会社のLP制作</p>
+                <p class="works-info">
+                  コーディング設計 <br />コーディング(HTML / CSS / JavaScript)
+                </p>
+              </a>
+              <a class="works-item" data-group="gallery">
+                <div class="works-img">
+                  <img src="#" alt="" />
+                </div>
+                <p class="works-name">作品名が入る</p>
+                <p class="works-info">Banner Design</p>
+              </a>
+              <a class="works-item" data-group="gallery">
+                <div class="works-img">
+                  <img src="#" alt="" />
+                </div>
+                <p class="works-name">作品名が入る</p>
+                <p class="works-info">Banner Design</p>
+              </a>
+            </div>
+          </div>
+          <a href="#" class="btn_01">GitHub</a>
+        </section>
+        <!-- /creations -->
+
+        <!-- skill -->
+        <section class="skill section" id="skill">
+          <div class="container">
+            <h2 class="title">SKILL</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <!-- <p class="skill-img"><img src="img/icon_skill.png" alt="" /></p> -->
+
+                <div class="skill-body">
+                  <h3 class="skill-name">
+                    HTML5/CSS3<i class="fa-brands fa-html5 fa-xl"></i>
+                  </h3>
+                  <p class="skill-text">
+                    セマンティック要素によるページの構造の明確化<br />
+                    見出し要素の適切な利用<br />
+                    アクセシビリティの確保
+                  </p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-body">
+                  <h3 class="skill-name">
+                    JavaScript<i class="fa-brands fa-js fa-xl"></i>
+                  </h3>
+                  <p class="skill-text">
+                    DOM操作、条件分岐、演算子、配列<br />関数宣言、ループ処理、
+                    イベント処理
+                  </p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-body">
+                  <h3 class="skill-name">
+                    Git ＆ GitHub<i class="fa-solid fa-code-branch fa-xl"></i>
+                  </h3>
+                  <p class="skill-text">
+                    VSCodeとGitHubとの連携、リポジトリの作成<br />
+                    チーム内でのリポジトリの共有<br />変更のコミット、プッシュ
+                  </p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-body">
+                  <h3 class="skill-name">
+                    Visual Studio Code<i class="fa-solid fa-code fa-xl"></i>
+                  </h3>
+                  <p class="skill-text">
+                    Visual Studio Codeのインストール、基本設定<br />
+                    拡張機能の追加 コーディング
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /skill -->
+
+        <!-- about me -->
+        <section class="about section" id="aboutMe">
+          <div class="container">
+            <h2 class="title">ABOUT ME</h2>
+            <div class="profile-body">
+              <p>
+                前職は卸売業の事務で、主に商奉行というソフトウェアを利用して受発注業務を行っておりました。<br />
+                多機能ではありますが、UIが低く使いづらく感じておりました。その際にプログラミングに興味を持ち、自分たちの身近にあるネットワークもいちから作り上げられたものだと感じ、IT業界で働きたいと思いました。<br />
+                家庭の事情で引っ越しをすることになり、それに伴い退職しましたが心機一転新天地で、頑張っていきたいと考えております。
+              </p>
+              <p>
+                【趣味】居酒屋巡り<br />
+                【長所】人の長所をたくさん見つけられること<br />
+                【好きな言葉】有言実行
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- /about me-->
+
+        <!-- contact -->
+        <section class="contact section" id="contact">
+          <div class="container">
+            <h2 class="title">CONTACT</h2>
+            <p class="lead">
+              ご連絡等は、<br
+                class="sp-only"
+              />こちらのGmailにてお願いいたします。
+            </p>
+            <div class="contact-list">
+              <span class="contact-item">kunrenyou@gmail.com</span>
+            </div>
+          </div>
+        </section>
+        <!-- /contact -->
+        <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
+      </main>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="copyright">&copy;ENO MOMOKA</div>
+      </footer>
+      <!-- /footer -->
+    </div>
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.1.min.js" />
+    <!-- <script src="js/modal.js"></script> -->
+  </body>
+</html>
