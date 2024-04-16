@@ -1,0 +1,1896 @@
+/* カスタムプロパティをカラーネームで置いておきます */
+:root {
+  --yellow: #ffd233;
+  --brown: #7f5539;
+  --glay: #d9d9d9;
+  --purple: #b392ac;
+  --ivory: #ede0d4;
+  --salmon: #ff8877;
+  --red: #bf0000;
+  --pink: #e8c2ca;
+  --black: #333333;
+  --white: #fff;
+}
+
+* {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.serif {
+  font-family: "Noto Serif JP", serif;
+}
+
+/* 共通要素 */
+.bold {
+  font-weight: bold;
+}
+
+.border-topbottom {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid var(--ivory);
+  border-bottom: 1px solid var(--ivory);
+}
+
+.row {
+  display: flex;
+}
+
+.border-left {
+  border-left: 2px solid var(--brown);
+  padding: 0.25rem;
+}
+
+input {
+  border: 1px solid var(--brown);
+  appearance: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* フェードインアニメーション */
+.anim {
+  opacity: 0;
+  transform: translate(0px, 60px);
+  transition: all 0.6s linear;
+}
+
+.anim.fade-in {
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
+/* 違うバージョンのアニメーション */
+.anim-ver1 {
+  transform: translate(-50px, 0px);
+}
+
+.anim-ver2 {
+  transform: translate(50px, 0px);
+}
+
+.box-border {
+  border: 1px solid var(--pink);
+  padding: 0.75rem;
+  width: 295px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* navメニュー実装に必要なスタイル */
+
+#wrapper {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(127, 85, 57, 0.75);
+  z-index: 100;
+  padding: 0.75rem;
+}
+
+#wrapper .row {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.25rem;
+}
+
+#wrapper img {
+  width: 60px;
+  height: 52px;
+}
+
+#wrapper ul li {
+  color: var(--white);
+  font-weight: normal;
+  border-bottom: 1px solid var(--white);
+  padding: 1rem 0.75rem;
+}
+
+.navbtn:hover {
+  cursor: pointer;
+}
+
+.btn-in-wrap {
+  background-color: transparent;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  align-self: flex-start;
+}
+
+.btn-in-wrap::before,
+.btn-in-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 26px;
+  background: var(--white);
+}
+
+.btn-in-wrap::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.btn-in-wrap::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ドロワーが閉じている時のスタイル */
+.active {
+  transform: translate3d(100vw, 0, 0);
+}
+
+/* 開く・閉じるアニメーション */
+#wrapper,
+#nav {
+  transition: transform 0.3s;
+}
+
+/* ページトップへ戻るボタン */
+.pagetop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+}
+.pagetop a {
+  display: block;
+  background-color: #cccccc;
+  text-align: center;
+  color: #222222;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 5px 10px;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+.pagetop a:hover {
+  display: block;
+  background-color: #b392ac;
+  text-align: center;
+  color: #ede0d4;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 5px 10px;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+/* 埋め込みSVGを使ったハートマークのスタイル */
+.heart {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--red);
+}
+.heart i {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.heart-fa {
+  fill: var(--red);
+}
+
+.section-title {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  border-bottom: 4px solid var(--yellow);
+  padding: 0.25rem 0.25rem;
+  font-size: 1.25rem;
+}
+
+.fa-heart {
+  color: var(--red);
+}
+.anim-heart {
+  animation: heart-animation 0.2s;
+}
+.heart-close {
+  animation: heart-close 0.2s;
+}
+.heart .favnum {
+  font-size: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+@keyframes heart-animation {
+  0% {
+    /* アイコンサイズをもとのより小さくする */
+    transform: scale(0.5);
+  }
+  10% {
+    transform: scale(0.7);
+  }
+  30% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+    /* もとのサイズに戻す */
+    transform: scale(1);
+  }
+}
+@keyframes heart-close {
+  0% {
+    /* アイコンサイズをもとのより小さくする */
+    transform: scale(1);
+  }
+  10% {
+    transform: scaleX(0.9);
+  }
+  30% {
+    transform: scaleX(0.7);
+  }
+  50% {
+    transform: scaleX(0.5);
+  }
+  80% {
+    transform: scaleX(0.1);
+  }
+  100% {
+    /* もとのサイズに戻す */
+    transform: scale(1);
+  }
+}
+/* index.phpのスタイル */
+.top {
+  padding-bottom: 20px;
+}
+
+.hero-img {
+  height: 200px;
+  background-image: url(../images/hero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.content-wrap {
+  margin-top: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content-top-square {
+  width: 45%;
+  margin-bottom: 1.25rem;
+  aspect-ratio: 1/1;
+  position: relative;
+  display: flex;
+}
+
+.figure-1 {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  width: 45%;
+}
+
+.figure-1::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: url(../images/product-5.png) center/cover no-repeat;
+  transition: 0.3s;
+}
+
+.figure-1:hover::after {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s all;
+}
+
+.figure-2 {
+  background: url(../images/index-fig-1.png) center/cover no-repeat;
+}
+
+.content-top-lect {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/1;
+  display: flex;
+}
+
+.content-top-lect::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: no-repeat center/cover url(../images/index-products.png);
+  transition: 0.3s;
+}
+
+.content-top-lect:hover::after {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s all;
+}
+
+.badge {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--salmon);
+  color: var(--white);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  z-index: 5;
+}
+
+.top-description {
+  align-self: flex-end;
+  font-size: 0.75rem;
+  margin-left: auto;
+  margin-bottom: 0.25rem;
+  margin-right: 0.25rem;
+  color: var(--white);
+  z-index: 5;
+}
+
+.content-top-lect > .top-description {
+  color: var(--brown);
+}
+
+/* top-sec-2 */
+.philosophy {
+  width: 100%;
+  height: 70vh;
+  background-color: var(--black);
+  opacity: 0.5;
+  position: relative;
+  text-transform: capitalize;
+  text-align: center;
+  padding-top: 17%;
+}
+
+.philosophy::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: center/cover no-repeat url(../images/index-bg.png);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+}
+
+.philosophy > h2,
+.philosophy > p {
+  color: var(--white);
+}
+
+.philosophy > h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+}
+
+.philosophy > p:first-of-type {
+  margin-bottom: 3.75rem;
+}
+
+.philosophy > p {
+  margin-bottom: 0.75rem;
+}
+
+.philosophy span {
+  font-size: 1.25rem;
+}
+
+/* rankingセクション */
+.ranking {
+  padding-top: 2rem;
+}
+
+.ranking .section-title {
+  margin-bottom: 4.5rem;
+}
+
+.index-ranking,
+.product-list {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.index-ranking > li,
+.product-list > li {
+  width: 45%;
+  margin-bottom: 5rem;
+}
+
+.index-ranking > li > a > img,
+.product-list > li > a > img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 1.25rem;
+}
+
+.index-ranking > li:first-child > .rank-number {
+  background-color: var(--yellow);
+}
+
+.rank-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 22%;
+  aspect-ratio: 1/1;
+  color: var(--white);
+  background-color: var(--salmon);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.ranking-name,
+.product-name {
+  margin-bottom: 1.375rem;
+  color: var(--brown);
+}
+
+.row-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.375rem;
+  color: var(--red);
+}
+
+.button {
+  background-color: var(--brown);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: 300;
+  width: 100%;
+  height: 2.5rem;
+}
+
+/*リアクション */
+.button {
+  transition: 0.3s;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+img {
+  transition: 0.3s;
+}
+
+.size-lock {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.size-lock img:hover {
+  opacity: 0.8;
+}
+
+.product-list > a {
+  transition: 0.5s all;
+}
+
+.product-list > a:hover {
+  transform: scale(1.1, 1.1);
+  text-decoration: underline;
+}
+
+.index-ranking img,
+.category1 img,
+.category2 img {
+  transition: 0.3s all;
+  width: 100%;
+}
+
+.index-ranking img:hover,
+.category1 img:hover,
+.category2 img:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s all;
+}
+
+/* customer-php */
+.customer {
+  padding-top: 2.5rem;
+  color: var(--brown);
+  padding-bottom: 2.5rem;
+  min-height: 600px;
+  width: 300px;
+}
+
+.customer-h2,
+.subpage-h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.customer-form {
+  width: 295px;
+  margin: 0 auto;
+}
+
+.customer-form {
+  font-size: 0.75rem;
+}
+
+.customer-form > input,
+.row-wrap > input {
+  border: 1px solid var(--brown);
+  width: 100%;
+  height: 1.25rem;
+  padding: 2px 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.customer-form {
+  font-size: 0.75rem;
+}
+
+.customer-form > p {
+  margin-bottom: 0.5rem;
+}
+
+.customer-form span,
+.customer-form small {
+  color: var(--red);
+}
+
+.customer-form small {
+  font-size: 0.5rem;
+}
+
+.customer-form .zipcode {
+  width: 120px;
+}
+
+.customer-form .button {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  height: 3rem;
+  width: 200px;
+}
+
+/* customer confirm */
+.customer p {
+  margin-bottom: 0.5rem;
+}
+
+.customer .border-left {
+  color: var(--black);
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.customer .border-left:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.customer .alert,
+.card .alert {
+  color: var(--red);
+  border-left: 2px solid var(--red);
+}
+/* complete */
+.customer-complete p {
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.customer-complete .link {
+  text-align: center;
+  width: fit-content;
+  padding-bottom: 0.25rem;
+  color: var(--brown);
+  border-bottom: 1px solid var(--brown);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.customer-complete .box-border {
+  padding: 1.5rem;
+}
+
+/* productページ */
+.category1 {
+  padding-top: 2rem;
+}
+.sort-form {
+  justify-content: center;
+  max-width: 1200px;
+  width: 79vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.sort-form p {
+  padding-top: 0.25em;
+  margin-left: 0.5rem;
+  flex-basis: 45%;
+  text-align: right;
+}
+.sort-form select {
+  appearance: auto;
+  border: 1px solid var(--brown);
+  margin-left: 0.5rem;
+  border-radius: 0.25rem;
+  width: fit-content;
+  flex-basis: 45%;
+  margin-bottom: 0.5rem;
+}
+.sort-form .button {
+  width: 3rem;
+  font-size: 1rem;
+  height: 1.75rem;
+  margin: 0;
+  margin-left: 0.5rem;
+  border-radius: 0.25rem;
+}
+.category1 > h2,
+.category2 > h2 {
+  margin-bottom: 2.5rem;
+}
+
+.product-text {
+  color: var(--brown);
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+/* detailページ */
+.detail {
+  padding: 1.25rem;
+}
+
+.detail-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 1.25rem;
+}
+
+.detail .row {
+  margin-bottom: 1.25rem;
+  justify-content: start;
+}
+
+.detail .heart {
+  margin-left: 1.25rem;
+  padding-top: 0.125rem;
+}
+
+.detail span {
+  color: var(--red);
+}
+
+.detail input[type="text"] {
+  height: 2.25rem;
+  width: 4rem;
+  text-align: right;
+  padding: 0.25rem;
+}
+
+.subscript {
+  margin-left: 0.25rem;
+  margin-right: 1rem;
+  padding-top: 1.25rem;
+}
+
+.detail input[type="submit"] {
+  width: 50%;
+  margin-left: 0;
+}
+/* お気に入りページ */
+.favorite .packbutton {
+  width: 200px;
+}
+/* cartページ */
+.cart {
+  padding: 1.25rem;
+  text-align: center;
+  padding-bottom: 6.25rem;
+}
+
+.cart .sp-none {
+  display: block;
+  border: none;
+}
+
+.cart > p {
+  margin-bottom: 1.25rem;
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.cart-list {
+  width: 100%;
+}
+
+.cart-list > li {
+  margin-bottom: 5rem;
+}
+
+.cart-list img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 1.25rem;
+}
+
+.cart p {
+  margin-bottom: 1.25rem;
+}
+
+.cart-title {
+  color: var(--brown);
+}
+
+.cart span {
+  color: var(--red);
+}
+
+.cart small {
+  color: var(--brown);
+  border-bottom: 1px solid var(--brown);
+}
+
+.cart form input[type="text"] {
+  width: 3.5rem;
+  height: 1.5rem;
+  border: none;
+}
+
+.cart form input[type="button"] {
+  width: 1.5rem;
+  text-align: center;
+  background-color: var(--brown);
+  color: var(--white);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  height: 1.5rem;
+  margin-bottom: 0;
+}
+
+.cart form input[type="submit"] {
+  border: none;
+  background-color: var(--brown);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  margin: 0 0.5rem;
+}
+
+.cart form .pt-1 {
+  padding-top: 0.25rem;
+}
+
+.cart form .row {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.border-square {
+  border: 2px solid var(--yellow);
+  padding-top: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.border-square > a {
+  width: 50%;
+  background-color: var(--red);
+  margin-bottom: 2.25rem;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.login-out {
+  padding-top: 2rem;
+  width: 300px;
+  padding-bottom: 2rem;
+  min-height: 600px;
+}
+
+.logout-input {
+  padding-top: 2.5rem;
+  color: var(--brown);
+  display: inline-block;
+  justify-content: center;
+}
+
+.login-out-box {
+  width: 18.4375rem;
+  height: 14.25rem;
+  border: 1px solid var(--pink);
+  padding: 0.75rem;
+  margin: 0 auto;
+}
+
+.login-out h2,
+.logout-input h2,
+.logout-complete h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--brown);
+}
+
+.login-out p,
+.logout-input p,
+.logout-complete p {
+  font-size: 0.75rem;
+  color: var(--brown);
+}
+
+.login-out .mt-24 {
+  margin-top: 1.5rem;
+}
+
+.login-out .m-24 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-out-form {
+  font-size: 0.75rem;
+  width: 100%;
+  border: 1px solid var(--brown);
+  height: 1.25rem;
+  padding: 2px 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.login-out .button {
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  width: 67%;
+}
+
+.login-out .link {
+  width: fit-content;
+  font-size: 0.75rem;
+  margin-left: auto;
+  padding-bottom: 0.25rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid var(--brown);
+}
+
+/* header-ページ */
+/* 横幅,境界線は仮.※いろいろまだ途中です */
+
+.header {
+  width: 100%;
+}
+
+.header-inner {
+  width: 100%;
+  height: 4.875rem;
+  padding: 0.75rem;
+  background-color: var(--ivory);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* 要素を中央に配置するためalign-itemsを追加しています */
+  align-items: center;
+}
+
+.header-top {
+  width: 100%;
+  height: 127px;
+  padding: 12px;
+  /* background-color: var(--purple); */
+  background-color: #d6cdcd;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header .navbtn {
+  width: 1.5rem;
+  border-bottom: 3px solid var(--brown);
+  height: 1.5rem;
+  position: relative;
+}
+
+.header .navbtn::after,
+.header .navbtn::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: var(--brown);
+  position: absolute;
+}
+
+.header .navbtn::after {
+  top: 0px;
+}
+
+.header .navbtn::before {
+  top: 10px;
+}
+
+.icon-login,
+.icon-cart,
+.icon-fav {
+  width: 3.5rem;
+  font-size: 0.625rem;
+  color: var(--brown);
+}
+
+.icon-cart > a,
+.icon-login > a,
+.icon-fav > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon-fav i {
+  font-size: 1.25rem;
+  color: var(--brown);
+}
+.icon-cart {
+  width: 2rem;
+}
+
+.icon-login img,
+.icon-cart img {
+  width: 1.25rem;
+}
+
+/* 検索ボックス */
+.search {
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-bottom: 1rem;
+  background-color: var(--ivory);
+}
+
+.search-box {
+  position: relative;
+  z-index: 0;
+}
+
+.search-text {
+  width: 100%;
+  height: 2.3125rem;
+  margin: 0 auto;
+  border: 1px solid var(--brown);
+  background-color: #fff;
+  padding: 0.25rem 0.25rem 0.25rem 2.5rem;
+}
+
+.search-text:focus {
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+.search-text:hover {
+  background-color: var(--ivory);
+  opacity: 0.5;
+}
+.breadcrumb,
+.welcome {
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--brown);
+}
+/* 後で画像入れ替え */
+.search-submit {
+  width: 2.125rem;
+  height: 2.3125rem;
+  background-color: var(--glay);
+  border: 1px solid var(--brown);
+  background-image: url(../images/icon-search.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+/* ドーナツショップロゴ */
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 108px;
+}
+
+h1 img {
+  width: 3.75rem;
+  display: block;
+}
+
+/* 会員登録・クレジットカード・購入確認ページのheaderのcss*/
+.header2 {
+  width: 100%;
+}
+
+.header-inner2,
+.header2 {
+  max-width: 375px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.75rem;
+  height: 62px;
+  padding-top: 12px;
+}
+
+.h1_2 {
+  margin: 0;
+  padding: 0;
+}
+
+.h1_2 img {
+  margin: 0;
+  display: block;
+  width: 60px;
+  height: 50px;
+}
+
+/* カード登録情報 */
+
+.card-form,
+.card {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  min-height: 600px;
+  width: 300px;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  color: var(--brown);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--brown);
+}
+
+.card-form input {
+  border: 1px solid var(--brown);
+  width: 100%;
+  height: 1.25rem;
+  padding: 2px 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-form input[type="radio"] {
+  display: none;
+}
+
+.card-form p {
+  margin-bottom: 0.5rem;
+}
+
+.card-form span,
+.card-form small {
+  color: var(--red);
+}
+
+.card-form small {
+  font-size: 0.5rem;
+}
+
+.card-form .radio {
+  padding-left: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.card-form .radio::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--brown);
+  margin-right: 0.25rem;
+  margin-bottom: 0;
+  align-self: flex-end;
+}
+
+.radiobtn:checked ~ .radio::before {
+  background-color: var(--black);
+  border: transparent;
+}
+
+.card-form .short-input {
+  width: 3.75rem;
+  margin-right: 0.5rem;
+}
+
+.card-form .special {
+  margin-bottom: 1.25rem;
+}
+
+.card-form .special > .row {
+  padding-left: 0.25rem;
+  margin-right: 2rem;
+}
+
+.card .button {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  height: 3rem;
+  width: 200px;
+}
+
+.card .mb-4 {
+  margin-bottom: 0.25rem;
+}
+
+.card .mb-20 {
+  margin-bottom: 1.255rem;
+}
+
+/* card-confirm */
+.card-confirm p {
+  font-size: 0.75rem;
+}
+
+.card-confirm p:nth-of-type(odd) {
+  color: var(--brown);
+  margin-bottom: 0.5rem;
+}
+
+.card-confirm p:nth-of-type(even) {
+  margin-bottom: 1.25rem;
+}
+
+/* card-complete */
+.card-complete p {
+  font-size: 0.75rem;
+  text-align: center;
+  padding-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-complete .link {
+  color: var(--brown);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--brown);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* purchase */
+.purchase {
+  width: 300px;
+  padding-top: 3.75rem;
+  font-size: 0.75rem;
+  padding-bottom: 3.75rem;
+  min-height: 600px;
+}
+
+.purchase h2 {
+  color: var(--brown);
+  margin-bottom: 4.5rem;
+}
+
+.purchase h3 {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: var(--brown);
+}
+
+.purchase .border-topbottom {
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+  border-top: 1px solid var(--pink);
+  border-bottom: 1px solid var(--pink);
+  margin-bottom: 1.25rem;
+}
+
+.purchase .row {
+  margin-bottom: 0.5rem;
+}
+
+.purchase .left {
+  width: 3.75rem;
+  padding: 0.25rem;
+  border-right: 2px solid var(--pink);
+  color: var(--brown);
+}
+
+.purchase .right {
+  padding: 0.25rem 0.75rem;
+}
+
+.purchase .border-topbottom-red {
+  border-top: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  padding: 0.75rem;
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.purchase .purchase-card .left {
+  width: 4.75rem;
+}
+
+.purchase .button {
+  width: 200px;
+  margin-top: 2.5rem;
+  font-size: 1rem;
+}
+
+/* purchase-complete */
+.purchase .box-border {
+  margin-bottom: 1.25rem;
+}
+
+.purchase .box-border p {
+  text-align: center;
+  padding-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.purchase .box-border p:last-of-type {
+  color: var(--brown);
+}
+
+.purchase-complete .link {
+  margin-left: auto;
+  width: fit-content;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--brown);
+  color: var(--brown);
+}
+
+/* //footer///// */
+.footer {
+  margin-top: 3rem;
+  padding: 0.75rem 0.75rem 1.5rem;
+  background-color: var(--ivory);
+  color: var(--brown);
+}
+
+.footer .border-left {
+  display: block;
+  padding: 0.25rem 10px;
+  border-left: 2px solid var(--purple);
+}
+
+.footer-nav-item {
+  margin-bottom: 1.25rem;
+}
+
+.footer-nav {
+  margin-bottom: 0.25rem;
+}
+
+.footer .sns {
+  margin-bottom: 1.5rem;
+}
+
+.footer .sns li {
+  margin: 0 10px;
+}
+
+.footer .sns li:first-of-type {
+  margin-left: 0;
+}
+
+.footer .sns img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.footer .logo1 {
+  margin-left: auto;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+}
+
+.footer .shoplogo {
+  width: 72px;
+  height: 60px;
+}
+
+.copyright {
+  color: var(--brown);
+  text-align: center;
+  font-size: 0.5rem;
+}
+
+.instagram-icon {
+  mask-image: url(../images/sns-instagram.svg);
+  mask-position: 0% 0%;
+  mask-size: 100%;
+}
+
+/* ////////////////// */
+/* ブレイクポイント768pxに設定 */
+@media screen and (min-width: 768px) {
+  /* ハートのサイズを変更 */
+  .heart i {
+    width: 1.5rem;
+  }
+  .heart .favnum {
+    font-size: 1rem;
+    padding-bottom: 0;
+    margin-left: 0.25rem;
+    align-self: flex-end;
+  }
+  /* navmenu */
+  #wrapper {
+    width: 600px;
+    left: -600px;
+  }
+
+  #wrapper img {
+    width: 87px;
+    height: 78px;
+  }
+
+  #wrapper .row {
+    margin-bottom: 6.25rem;
+  }
+
+  .active {
+    transform: translateX(600px);
+  }
+
+  .btn-in-wrap {
+    width: 54px;
+    height: 54px;
+  }
+
+  .btn-in-wrap::before,
+  .btn-in-wrap::after {
+    height: 54px;
+  }
+
+  #wrapper ul li {
+    font-size: 1.5rem;
+    padding: 1.25rem 0.75rem;
+    width: 67%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* header */
+  .header {
+    width: 100%;
+    height: 182px;
+  }
+
+  .header-inner {
+    height: 118px;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  h1 {
+    padding-left: 164px;
+  }
+
+  h1 img {
+    width: 5rem;
+  }
+  .icon-fav {
+    margin-right: 2rem;
+  }
+  .icon-login,
+  .icon-cart,
+  .icon-fav {
+    width: 3.5rem;
+    font-size: 0.75rem;
+    color: var(--brown);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon-cart > a,
+  .icon-login > a,
+  .icon-fav > a {
+    width: 5rem;
+  }
+  .icon-login {
+    margin-right: 2.25rem;
+  }
+
+  .icon-cart {
+    width: 2.5rem;
+  }
+  .icon-fav i {
+    font-size: 2.5rem;
+  }
+  .icon-login img,
+  .icon-cart img {
+    width: 2.5rem;
+  }
+
+  .icon-login p,
+  .icon-cart p,
+  .icon-fav p {
+    margin-top: 0.5rem;
+  }
+
+  .header .navbtn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .header .navbtn::before {
+    top: 0px;
+  }
+
+  .header .navbtn::after {
+    top: 23px;
+  }
+
+  .search {
+    width: 100%;
+    height: 4rem;
+    background-color: var(--purple);
+    padding: 0.75rem 2.5rem;
+  }
+
+  .search-box {
+    width: 22.5rem;
+    height: 2.5rem;
+    border: var(--brown);
+    background-color: #fff;
+    position: relative;
+    float: right;
+  }
+
+  .search-text {
+    width: 20rem;
+    height: 2.5rem;
+    padding: 0.75rem;
+    margin: 0 auto;
+    margin-left: 2.5rem;
+    border: 1px solid var(--brown);
+    background-color: #fff;
+  }
+
+  /* 後で画像入れ替え */
+  .search-submit {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--glay);
+    border: 1px solid var(--brown);
+    position: absolute;
+    top: 0px;
+    left: 0;
+  }
+
+  /* header */
+  .header-top {
+    height: 118px;
+  }
+
+  .welcome,
+  .breadcrumb {
+    width: 100%;
+    height: 2.25rem;
+    padding: 7px 3%;
+    background-color: #fff;
+    border-bottom: 1px solid var(--brown);
+  }
+
+  /* indexページ */
+  .hero-img {
+    height: 593px;
+  }
+
+  .top {
+    padding-bottom: 80px;
+  }
+
+  .content-wrap {
+    max-width: 1200px;
+    width: 76vw;
+    padding-top: 5rem;
+  }
+
+  .content-top-square {
+    width: 48%;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge {
+    width: 30%;
+    height: 30%;
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .top-description {
+    font-size: clamp(1.25rem, 3vw, 2.25rem);
+    margin-right: 0.5em;
+    overflow: visible;
+    white-space: nowrap;
+  }
+
+  .philosophy {
+    height: 667px;
+    padding-top: 200px;
+  }
+
+  .philosophy > h2 {
+    font-size: 2.25rem;
+  }
+
+  .philosophy > p {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .philosophy > p:first-of-type {
+    margin-bottom: 2.5rem;
+  }
+
+  .philosophy span {
+    font-size: 1.5rem;
+  }
+
+  /* rankingセクション */
+  .ranking {
+    padding-top: 5rem;
+  }
+
+  .section-title {
+    border-bottom: 8px solid var(--yellow);
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .ranking .section-title,
+  .category1 .section-title {
+    font-size: 2rem;
+  }
+
+  .rank-number {
+    font-size: 1.5rem;
+  }
+
+  .index-ranking,
+  .product-list {
+    width: 79vw;
+    max-width: 1200px;
+    justify-content: flex-start;
+  }
+
+  .index-ranking > li,
+  .product-list > li {
+    width: 30%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+  .index-ranking > li:nth-of-type(3n-2),
+  .product-list > li:nth-of-type(3n-2) {
+    margin-left: 0;
+  }
+  .index-ranking > li:nth-of-type(3n),
+  .product-list > li:nth-of-type(3n) {
+    margin-right: 0;
+  }
+  .ranking-name,
+  .product-name {
+    font-size: 1.5rem;
+  }
+
+  .row-wrap {
+    font-size: 1.5rem;
+  }
+  .category1 > h2,
+  .category2 > h2 {
+    margin-bottom: 5rem;
+  }
+  .button {
+    width: 80%;
+    height: 3.25rem;
+    font-size: 1.25rem;
+  }
+  /* お気に入りページ */
+  .favorite .packbutton {
+    width: 400px;
+  }
+  /* detailページ */
+  .detail {
+    padding-top: 5rem;
+  }
+  .sort-form {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+  .sort-form p {
+    flex-basis: content;
+  }
+  .sort-form select {
+    flex-basis: content;
+  }
+  .detail-wrap {
+    display: flex;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 79vw;
+  }
+
+  .detail-wrap .detail-left,
+  .detail-wrap .detail-right {
+    width: 50%;
+  }
+
+  .detail-wrap .detail-right {
+    padding: 0 2.75rem;
+  }
+
+  .detail .product-name,
+  .detail .product-text {
+    font-size: 1.5rem;
+  }
+
+  .detail .border-topbottom {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+  .detail .heart {
+    padding-top: 0;
+  }
+  .detail .row {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .detail input[type="text"] {
+    width: 5rem;
+    height: 3.25rem;
+    margin-right: 0.5rem;
+  }
+
+  .detail .subscript {
+    padding-top: 1.75rem;
+    font-size: 1.5rem;
+  }
+
+  /* cartページ */
+  .cart {
+    padding-left: 6.25rem;
+    padding-right: 6.25rem;
+  }
+
+  .cart-list {
+    width: 76vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+  }
+
+  .cart-list > li {
+    display: flex;
+  }
+
+  .cart-list .left {
+    width: 32%;
+  }
+
+  .cart-list .right {
+    width: 68%;
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .cart-list .right p {
+    margin-bottom: 1rem;
+  }
+
+  .cart .sp-none {
+    display: flex;
+    border-top: 1px solid var(--pink);
+    border-bottom: 1px solid var(--pink);
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    height: calc(100% - 80px);
+  }
+
+  .cart .row > p {
+    flex-basis: 50%;
+  }
+
+  .cart form {
+    flex-basis: 50%;
+    align-items: flex-start;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+  }
+
+  .cart .row > p:first-of-type {
+    text-align: left;
+  }
+
+  .cart .row > p:nth-of-type(2) {
+    text-align: right;
+  }
+  .cart form .row {
+    margin-right: 1rem;
+  }
+  .cart form .row > p {
+    flex-basis: auto;
+  }
+
+  .cart form .row > p:last-of-type {
+    flex-basis: auto;
+    padding-top: 0;
+  }
+
+  .cart .row > p:last-of-type {
+    text-align: right;
+    flex-basis: 100%;
+    align-self: flex-end;
+  }
+
+  .cart form input[type="text"] {
+    padding: 0.25rem;
+  }
+
+  .cart form input[type="button"],
+  .cart form input[type="text"],
+  .cart form input[type="submit"] {
+    height: 1.75rem;
+  }
+
+  .cart form input[type="submit"] {
+    font-size: 0.75rem;
+    padding-top: 0.3rem;
+  }
+
+  .cart .cart-title {
+    text-align: left;
+  }
+
+  .cart .border-square p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cart .button {
+    width: 260px;
+  }
+
+  /* /////footer/////// */
+  .footer {
+    margin-top: 7rem;
+  }
+
+  .footer-nav-list {
+    display: flex;
+  }
+
+  .footer-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer .border-left {
+    font-size: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .footer-nav-item {
+    margin-bottom: 0;
+  }
+
+  .footer-nav {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer .sns img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .footer .sns li {
+    margin: 0 2.5rem;
+  }
+
+  .footer .sns {
+    margin-bottom: 3.75rem;
+  }
+
+  .footer .logo1 {
+    margin: 0 auto 2.5rem;
+  }
+
+  .footer .shoplogo {
+    width: 140px;
+    height: 116px;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+}
