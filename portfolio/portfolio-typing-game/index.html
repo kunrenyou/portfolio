@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>typing-game</title>
+</head>
+<body>
+    <div class="timer" id="timer">Typing Game</div>
+    <div class="container" id="container">
+        <p id="countDown" class="countDown"></p>
+        <div class="type-display" id="typeDisplay"></div>
+        <textarea class="type-Input"  id="typeInput" autofocus></textarea>
+        <input type="button" value="Try again" onclick="window.location.reload();" id="againBtn" class="againBtn" />
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
